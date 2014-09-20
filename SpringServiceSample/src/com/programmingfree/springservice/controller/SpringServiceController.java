@@ -10,7 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class SpringServiceController {
 	@RequestMapping(value = "/{name}", method = RequestMethod.GET)
 	public String getGreeting(@PathVariable String name) {
-		String result="Hello "+name;		
+		String result="Hello "+name;	
+		
+		System.out.println("good job");
+		
 		return result;
 		
 	}
