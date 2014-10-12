@@ -16,8 +16,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
-
-
 public class GetDemo {
 
 	private static final Integer SOCKET_SECONDS = 6;
@@ -26,7 +24,6 @@ public class GetDemo {
 	public static void doGet(Integer[] cpdtNums, Integer[] qtys, String platform) {
 		
 		final String HTTP_URL = "https://tw.search.yahoo.com/search";
-		
 		
 		CloseableHttpClient httpclient = HttpClients.createDefault();
 		try{
@@ -54,7 +51,6 @@ public class GetDemo {
 		    try{
 		    	if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
 		    		System.out.println(response);
-		    		
 		    		String body = EntityUtils.toString(response.getEntity(), "UTF-8");
 		    		System.out.println("body:"+body);
 		    	}
