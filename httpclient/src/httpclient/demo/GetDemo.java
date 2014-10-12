@@ -94,8 +94,6 @@ public class GetDemo {
 		String platform = "E";
 		
 		doGet(cpdtNums, qtys, platform);
-		
-		
 		      
 	}
 	
