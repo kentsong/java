@@ -16,6 +16,11 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 
+/**
+ * httpclient get
+ * @author Kent
+ */
+
 public class GetDemo {
 
 	private static final Integer SOCKET_SECONDS = 6;
@@ -51,8 +56,8 @@ public class GetDemo {
 		    try{
 		    	if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
 		    		System.out.println(response);
-		    		String body = EntityUtils.toString(response.getEntity(), "UTF-8");
-		    		System.out.println("body:"+body);
+		    		String result = EntityUtils.toString(response.getEntity(), "UTF-8");
+		    		System.out.println("result:"+result);
 		    	}
 		    	
 		    }finally{
