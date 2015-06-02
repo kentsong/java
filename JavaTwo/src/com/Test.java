@@ -4,7 +4,7 @@ public class Test {
 	
 	public  static void main(String[] args){ 
 		
-		System.out.println("Hello world 20140920");
+		System.out.println("Hello world 20150602");
 	}
 		
 	
