@@ -95,6 +95,7 @@ public class GetDemo {
 		String platform = "E";
 		
 		doGet(cpdtNums, qtys, platform);
+		System.out.println("git test again");
 		      
 	}
 	
