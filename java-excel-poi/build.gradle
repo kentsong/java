@@ -1,0 +1,32 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.6
+
+repositories {
+    maven {
+        url = "http://repo1.maven.org/maven2/"
+    }
+}
+
+configurations {
+	compile.exclude module: 'jcl-over-slf4j'
+	compile.exclude module: 'jul-to-slf4j'
+	compile.exclude module: 'log4j-over-slf4j'
+}
+
+dependencies {
+	runtime fileTree(dir: 'libs', include: '*.jar')
+	
+	compile 'org.apache.commons:commons-lang3:3.3.2'
+	compile 'ch.qos.logback:logback-core:1.1.2'
+	compile 'ch.qos.logback:logback-classic:1.1.2'
+	compile 'ch.qos.logback:logback-parent:1.1.2'
+	compile 'com.jcraft:jsch:0.1.50'
+	compile 'org.apache.poi:poi:3.10-FINAL'
+	compile 'org.apache.poi:poi-ooxml:3.10-FINAL'
+	compile 'org.apache.poi:poi-ooxml-schemas:3.10-FINAL'
+	
+	testCompile 'org.springframework:spring-test:4.1.1.RELEASE'
+    testCompile 'junit:junit:4.+'
+}
