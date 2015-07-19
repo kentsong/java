@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+sourceCompatibility = 1.6
+
+repositories {
+    maven {
+        url = "http://repo1.maven.org/maven2/"
+    }
+}
+
+configurations {
+	compile.exclude module: 'jcl-over-slf4j'
+	compile.exclude module: 'jul-to-slf4j'
+	compile.exclude module: 'log4j-over-slf4j'
+}
+
+dependencies {
+	compile 'joda-time:joda-time:2.7'
+	
+    testCompile 'junit:junit:4.+'
+}
