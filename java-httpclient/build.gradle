@@ -1,0 +1,39 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'checkstyle'
+
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+jar.archiveName = "pandora-client.jar"
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'java-httpcliect'
+    }
+}
+
+repositories {
+    maven {
+        url = "http://repo1.maven.org/maven2/"
+    }
+}
+
+configurations {
+	compile.exclude module: 'jcl-over-slf4j'
+	compile.exclude module: 'jul-to-slf4j'
+	compile.exclude module: 'log4j-over-slf4j'
+}
+
+dependencies {
+	compile 'commons-io:commons-io:2.4'
+	compile 'org.apache.commons:commons-lang3:3.3.2'
+	compile 'org.apache.httpcomponents:httpclient:4.3.5'
+	compile 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
+	compile 'ch.qos.logback:logback-core:1.1.2'
+	compile 'ch.qos.logback:logback-classic:1.1.2'
+	compile 'ch.qos.logback:logback-parent:1.1.2'
+	compile 'log4j:log4j:1.2.16'
+	
+	testCompile 'junit:junit:4.+'
+}
