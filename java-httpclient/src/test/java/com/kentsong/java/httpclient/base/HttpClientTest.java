@@ -1,21 +1,18 @@
 package com.kentsong.java.httpclient.base;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.io.IOUtils;
 import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.message.BasicNameValuePair;
 import org.junit.Before;
 import org.junit.Test;
 
 import com.kentsong.java.httpclient.client.TestingClient;
+import com.kentsong.java.httpclient.vo.Person;
 
 public class HttpClientTest {
 
@@ -34,17 +31,7 @@ public class HttpClientTest {
 		nvps.add(new BasicNameValuePair("cproNums", "123"));
 		nvps.add(new BasicNameValuePair("cproNums", "456"));
 		
-		try {
-			String theString = IOUtils.toString(new UrlEncodedFormEntity(nvps).getContent(), "UTF-8");
-			System.out.println("httpPost params: " + theString);
-		} catch (UnsupportedEncodingException e1) {
-			e1.printStackTrace();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		} 
-		
-		String resultHtml = testingClient.doPost("https://tw.yahoo.com", nvps, 6, 6);
-		//System.out.println(resultHtml);
+		testingClient.doPost("https://tw.yahoo.com", nvps, 6, 6);
 	}
 	
 	@Test
@@ -65,10 +52,24 @@ public class HttpClientTest {
 			throw new RuntimeException("URISyntaxException error: ", e);
 		}
 		
-		System.out.println("httpGet params: "+ uri.getQuery());
+		testingClient.doGet(uri, 6, 6);
+	}
+	
+	@Test
+	public void testPostJsonObj() {
+		Person person = new Person();
+		person.setId(635L);
+		person.setName("kent");
+		String url = "http://localhost:8080/spring-mvc-restful/rest/jsonObj";
+		Person newPerson = testingClient.doPost(url, person, Person.class, 6, 6);
+		System.out.println("newPerson.getId()" + newPerson.getId());
+		System.out.println("newPerson.getName()" + newPerson.getName());
 		
-		String resultHtml = testingClient.doGet(uri, 6, 6);
-		//System.out.println(resultHtml);
+	}
+	
+	@Test
+	public void testGet2() {
+		testingClient.doGet("http://localhost:8080/spring-mvc-restful/rest/person?name=kent", 6, 6);
 	}
 
 }
