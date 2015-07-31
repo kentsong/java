@@ -69,7 +69,7 @@ public class HttpClientTest {
 	
 	@Test
 	public void testGet2() {
-		testingClient.doGet("http://localhost:8080/spring-mvc-restful/rest/person?name=kent", 6, 6);
+		testingClient.doGet("http://www.google.com.tw", 6, 6);
 	}
 
 }

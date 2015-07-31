@@ -18,6 +18,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -160,6 +161,7 @@ public abstract class AbstractRestfulClient {
 		httpGet.setConfig(config);
 		
 		CloseableHttpClient httpClient = HttpClientConnectionPool.getHttpClient();
+		PoolingHttpClientConnectionManager cm = (PoolingHttpClientConnectionManager) httpClient.getConnectionManager();
 		try {
 			CloseableHttpResponse response = httpClient.execute(httpGet);
 			if(response.getStatusLine().getStatusCode() == HttpStatus.SC_OK){
