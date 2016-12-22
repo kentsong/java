@@ -12,11 +12,6 @@ public class ImageResize {
 
 	public static void main(String[] args) {
 
-		//ori file
-		//1x width¡Bpath
-		//2x width¡Bpathj
-		//3x width
-		
 		try {
 			BufferedImage originalImage = ImageIO.read(new File("E:\\ori.jpg"));
 
