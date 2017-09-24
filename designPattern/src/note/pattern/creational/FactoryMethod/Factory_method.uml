@@ -1,0 +1,40 @@
+@startuml
+
+
+interface Soldier {
+	+ attack() : void 
+	+ move() : void 
+}
+
+class 步兵 implements Soldier{
+	+ attack() : void 
+	+ move() : void 
+}
+
+
+class 弓兵 implements Soldier{
+	+ attack() : void 
+	+ move() : void 
+}
+
+class 騎兵 implements Soldier{
+    + attack() : void 
+	+ move() : void 
+}
+
+class SoldierFactory {
+    + getSoldier() : Soldier
+}
+
+class FactoryPatternDemo {
+    + main() : void
+}
+
+/'關係描述'/
+SoldierFactory -left-> Soldier : <<create>>
+
+FactoryPatternDemo -down-> SoldierFactory: use
+
+
+
+@enduml

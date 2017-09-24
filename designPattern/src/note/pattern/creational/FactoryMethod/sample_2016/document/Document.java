@@ -1,4 +1,4 @@
-package note.pattern.creational.FactoryMethod.sample.document;
+package note.pattern.creational.FactoryMethod.sample_2016.document;
 
 public abstract class Document implements IDocument{
 	private String title;
