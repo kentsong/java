@@ -1,10 +1,10 @@
-package note.pattern.creational.FactoryMethod.sample.editor;
+package note.pattern.creational.FactoryMethod.sample_2016.editor;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import note.pattern.creational.FactoryMethod.sample.document.IDocument;
+import note.pattern.creational.FactoryMethod.sample_2016.document.IDocument;
 
 public abstract class Editor {
 	private List<IDocument> docs = new ArrayList<IDocument>();
@@ -36,6 +36,6 @@ public abstract class Editor {
 		}
 	}
 
-	// ... 其它的方法定義
+	// ... 嚙賭它嚙踝蕭嚙踝蕭k嚙緩嚙緬
 	abstract IDocument createDocument(); // Factory method
 }

@@ -1,0 +1,80 @@
+@startuml
+
+
+interface Soldier {
+	+ attack() : void 
+	+ move() : void 
+	+ skill() : void 
+}
+
+abstract class 步兵 implements Soldier{
+	+ attack() : void 
+	+ move() : void 
+}
+
+class 槍兵 extends 步兵 {
+	+ skill() : void
+}
+
+class 劍兵勇士 extends 步兵 {
+	+ skill() : void
+}
+
+
+abstract 弓兵 implements Soldier{
+	+ attack() : void 
+	+ move() : void 
+}
+
+class 戰矛兵 extends 弓兵 {
+	+ skill() : void
+}
+
+class 強弩兵 extends 弓兵 {
+	+ skill() : void 
+}
+
+abstract class 騎兵 implements Soldier{
+    + attack() : void 
+	+ move() : void 
+}
+
+class 駱駝騎兵 extends 騎兵 {
+	+ skill() : void 
+}
+
+class 騎士 extends 騎兵 {
+	+ skill() : void 
+}
+
+abstract class AbstractFactory {
+	+ getSoldier() : Soldier
+}
+
+
+class 步兵系Factory extends AbstractFactory {
+    + getSoldier() : Soldier
+}
+
+class 弓兵系Factory extends AbstractFactory {
+    + getSoldier() : Soldier
+}
+
+class 騎兵系Factory extends AbstractFactory {
+    + getSoldier() : Soldier
+}
+
+class AbstractFactoryDemo {
+    + main() : void
+}
+
+/'關係描述'/
+AbstractFactory -down-> Soldier : <<create>>
+
+AbstractFactoryDemo -up-> 步兵系Factory: use
+AbstractFactoryDemo -up-> 弓兵系Factory: use
+AbstractFactoryDemo -up-> 騎兵系Factory: use
+
+
+
+@enduml
